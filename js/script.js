@@ -5,6 +5,7 @@ $(document).ready(function(){
 	var operator = "";
     var sumString = "";
     var wipe = false;
+    var opCount = 0;
 
     function lastCharAnOperator() {
         if (sumString[sumString.length-1] == "*" || sumString[sumString.length-1] == "/" || sumString[sumString.length-1] == "%" || sumString[sumString.length-1] == "+" || sumString[sumString.length-1] == "-") {
@@ -29,10 +30,16 @@ $(document).ready(function(){
 
 	// Operator listeners
 	$(".operators").click(function() {
+        opCount += 1;
         wipe = false;
 		operator = $(this).text();
         sumString += number;
         number = "";
+        // intermediate calc
+        if (opCount > 1) {
+            var answer = eval(sumString);
+            $("#display").text(answer);
+        }
         // if last item in item in sumString is an operator, replace with new opp
         if (lastCharAnOperator()) {
             sumString = sumString.slice(0, -1);
@@ -54,6 +61,7 @@ $(document).ready(function(){
 
     // Equals listener
     $("#equals").click(function(){
+        opCount = 0;
         sumString += number;
         if (lastCharAnOperator()) {
             sumString = sumString.slice(0, -1);
