@@ -1,45 +1,50 @@
 $(document).ready(function(){
 
-	var display = $("#display");
-	display.text("0");
+
+	$("#display").text("0");
 	var number = "";
 	var operator = "";
     var sumString = "";
 
-	// Max nums on screen == 12
-	// When numbers pressed, add to var number and update screen
+	// Number listeners
 	$(".numbers").not("#clear, #clearall").click(function() {
-		if (number.length < 13) {
-			number += $(this).html();
-			$("#display").text(number);
-            sumString += number;
-            console.log("sumString = " + sumString);
-		}
+		number += $(this).html();
+		$("#display").text(number);
+
 	});
-	// When operators pressed
+	// Operator listeners
 	$(".operators").click(function() {
 		operator = $(this).text();
-		number = "";
-        sumString += operator;
+        sumString += number;
+        number = "";
+        // if last item in item in sumString is an operator, replace with new one
+        if (sumString[sumString.length-1] == "*" || sumString[sumString.length-1] == "/" || sumString[sumString.length-1] == "%" || sumString[sumString.length-1] == "+" || sumString[sumString.length-1] == "-") {
+            sumString = sumString.slice(0, -1);
+            sumString += operator;
+        } else {
+            sumString += operator;
+        }
+
 	});
-	// Clear and clear all
+	// Clear and clearall listeners
 	$("#clear,#clearall").click(function(){
 		number = "";
 		operator = "";
-		$("#display").text("0");
+        $("#display").text("0");
 		if ($(this).attr("id") === "clearall") {
-            sumString = "";
+            sumString = "0";
 		}
     });
 
     // Equal listener
     $("#equals").click(function(){
-        console.log(sumString);
+        sumString += number;
+        // if last item is a char
     	var answer = eval(sumString);
-        answer = "" + answer;
-        console.log("Answer = " + answer)
-    	$("#display").text(answer); // need to handle result length!
-    	operator = ""; // reset operator and newnumber
+    	$("#display").text(answer);
+    	operator = "";
+        sumString = "";
+        number = answer;
     });
 
 });
