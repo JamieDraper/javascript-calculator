@@ -72,6 +72,11 @@ $(document).ready(function(){
             sumString = sumString.slice(0, -1);
         }
         var answer = eval(sumString);
+        // if answer.length > 13
+        // exponent
+        if (answer.length > 13) {
+            answer = answer.toExponential();
+        }
         $("#display").text(answer);
         // handle any division by zero
         if (answer == "Infinity") {
