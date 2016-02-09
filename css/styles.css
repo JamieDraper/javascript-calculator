@@ -1,6 +1,19 @@
 @import
 url('http://fonts.googleapis.com/css?family=Raleway:200,400');
 
+* {
+   -moz-user-select: -moz-none;
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+
+   /*
+     Introduced in IE 10.
+     See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
+   */
+   -ms-user-select: none;
+   user-select: none;
+}
+
 h3 {
   font-family:Raleway;
   text-align: center;
