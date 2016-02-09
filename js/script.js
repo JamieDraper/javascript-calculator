@@ -12,6 +12,15 @@ $(document).ready(function(){
             return true;
         }
     }
+
+    function largeNumToExponential(n) {
+        if (n.toString().length > 13) {
+            return n.toExponential(8);
+        } else {
+            return n;
+        }
+    }
+
   // decimal listener
     $("#point").click(function(){
         if (number.indexOf(".") === -1) {
@@ -43,6 +52,7 @@ $(document).ready(function(){
         // intermediate calc
         if (opCount > 1) {
             var answer = eval(sumString);
+            answer = largeNumToExponential(answer);
             $("#display").text(answer);
         }
         // if last item in item in sumString is an operator, replace with new opp
@@ -74,9 +84,10 @@ $(document).ready(function(){
         var answer = eval(sumString);
         // if answer.length > 13
         // exponent
-        if (answer.length > 13) {
-            answer = answer.toExponential();
-        }
+
+        answer = largeNumToExponential(answer);
+
+        console.log(answer);
         $("#display").text(answer);
         // handle any division by zero
         if (answer == "Infinity") {

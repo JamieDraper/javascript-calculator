@@ -48,7 +48,7 @@ h3 {
   font-family: "Exo 2";
   border: 1px solid black;
   border-radius: 10px;
-  overflow: "scroll";
+  overflow: hidden;
 }
 
 .buttons {
