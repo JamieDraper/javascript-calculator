@@ -14,17 +14,17 @@ $(document).ready(function(){
     }
 
     function largeAnswerTrim(n) {
-        if (n.toString().length > 15) {
-            return n.toPrecision(10);
+        if (n.toString().length > 13) {
+            return n.toPrecision(8);
         } else {
             return n;
         }
     }
 
     function truncateIfTooLong(n) {
-        if (n.toString().length > 15) {
+        if (n.toString().length > 13) {
             console.log("firing")
-            return n.substring(0, 15);
+            return n.substring(0, 13);
         } else {
             return n;
         }

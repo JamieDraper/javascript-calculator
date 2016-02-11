@@ -15,10 +15,17 @@ url('http://fonts.googleapis.com/css?family=Raleway:200,400');
    user-select: none;
 }
 
+html {
+  background: white;
+  background: radial-gradient(circle, #fff 20%, #ccc);
+  background-size: cover;
+
+}
+
 h3 {
-  font-family:Raleway;
+  font-family: "Raleway";
   text-align: center;
-  font-size: 20px;
+  font-size: 22px;
   color: white;
 }
 
@@ -29,27 +36,31 @@ h3 {
 #calc {
   background: #62c2cc;
   width: 280px;
-  height: 420px;
+  height: 410px;
   margin-bottom: 5px;
   margin: 50px auto;
   padding:10px;
-  border: 3px solid black;
-  border-radius: 10px;
+  box-shadow: 0px 4px #009de4, 0px 10px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  box-shadow: 0 0 20px #545454;
 }
 
 #display {
   width: 270px;
-  height: 70px;
-  line-height: 70px;
+  height: 50px;
+  line-height: 50px;
+  margin-top: 10px;
   margin-bottom: 15px;
   padding: 0px 5px;
-  background-color: #fff;
+  background-color: #D8EDE2;
   text-align: right;
   font-size: 35px;
-  font-family: "Inconsolata", monospace;
-  border: 1px solid black;
-  border-radius: 10px;
+  font-family: Courier, monospace;
+  border: 0px solid black;
+  border-radius: 5px;
+  box-shadow: inset 0px 6px rgba(0, 0, 0, 0.2);
   overflow: hidden;
+  color: #5A665F;
 }
 
 .buttons {
@@ -71,6 +82,11 @@ button {
   border-radius: 5px;
   outline: none;
   font-size: 15px;
+}
+
+button.numbers {
+  font: bold 14px Arial, sans-serif;
+  color: #7889B0;
 }
 
 button.operators {
@@ -103,6 +119,8 @@ button#equals {
   background: #f17022;
   color: white;
   font-size: 30px;
+  width: 140px;
+
 }
 
 button:hover#equals {
@@ -110,6 +128,3 @@ button:hover#equals {
 }
 
 
-#equals {
-  width: 140px;
-}
