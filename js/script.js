@@ -21,6 +21,15 @@ $(document).ready(function(){
         }
     }
 
+    function truncateIfTooLong(n) {
+        if (n.toString().length > 15) {
+            console.log("firing")
+            return n.substring(0, 15);
+        } else {
+            return n;
+        }
+    }
+
   // decimal listener
     $("#point").click(function(){
         if (number.indexOf(".") === -1) {
@@ -37,8 +46,8 @@ $(document).ready(function(){
             $("#display").text("0");
             wipe = false;
         }
-
         number += $(this).html();
+        number = truncateIfTooLong(number);
         $("#display").text(number);
     });
 
