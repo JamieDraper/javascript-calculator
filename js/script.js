@@ -13,9 +13,9 @@ $(document).ready(function(){
         }
     }
 
-    function largeNumToExponential(n) {
-        if (n.toString().length > 13) {
-            return n.toExponential(8);
+    function largeAnswerTrim(n) {
+        if (n.toString().length > 15) {
+            return n.toPrecision(10);
         } else {
             return n;
         }
@@ -53,23 +53,28 @@ $(document).ready(function(){
 
     // Operator listeners
     $(".operators").click(function() {
-        opCount += 1;
-        wipe = false;
-        operator = $(this).text();
-        sumString += number;
-        number = "";
-        // intermediate calc
-        if (opCount > 1) {
-            var answer = eval(sumString);
-            answer = largeNumToExponential(answer);
-            $("#display").text(answer);
+        try {
+            opCount += 1;
+            wipe = false;
+            operator = $(this).text();
+            sumString += number;
+            number = "";
+            // intermediate calc
+            if (opCount > 1) {
+                var answer = eval(sumString);
+                answer = largeAnswerTrim(answer);
+                $("#display").text(answer);
+            }
+            // if last item in item in sumString is an operator, replace with new opp
+            if (lastCharAnOperator()) {
+                sumString = sumString.slice(0, -1);
+                sumString += operator;
+            } else {
+                sumString += operator;
+            }
         }
-        // if last item in item in sumString is an operator, replace with new opp
-        if (lastCharAnOperator()) {
-            sumString = sumString.slice(0, -1);
-            sumString += operator;
-        } else {
-            sumString += operator;
+        catch(err) {
+            console.log("Incorrect operator placement")
         }
     });
 
@@ -94,7 +99,7 @@ $(document).ready(function(){
         // if answer.length > 13
         // exponent
 
-        answer = largeNumToExponential(answer);
+        answer = largeAnswerTrim(answer);
 
         console.log(answer);
         $("#display").text(answer);
