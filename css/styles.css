@@ -70,12 +70,13 @@ button {
   background: #eef66c;
   border-radius: 5px;
   outline: none;
-  font-size: 13px;
+  font-size: 15px;
 }
 
 button.operators {
   background: #fdb813;
   color: white;
+  font-size: 17px;
 }
 
 button:hover {
@@ -101,10 +102,11 @@ button:hover#clear, button:hover#clearall {
 button#equals {
   background: #f17022;
   color: white;
+  font-size: 30px;
 }
 
 button:hover#equals {
-  background: #e27736;
+  background: #eb620f;
 }
 
 
