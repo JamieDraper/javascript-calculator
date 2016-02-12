@@ -59,21 +59,22 @@ $(document).ready(function(){
             operator = $(this).text();
             sumString += number;
             number = "";
-            // if last item in item in sumString is an operator, replace with new opp
-            if (lastCharAnOperator()) {
-                sumString = sumString.slice(0, -1);
-                sumString += operator;
-            } else {
-                sumString += operator;
-            }
-        }
-        catch(err) {
             // intermediate calc
-            console.log("Incorrect operator placement")
             if (opCount > 1) {
                 var answer = eval(sumString);
                 answer = largeAnswerTrim(answer);
                 $("#display").text(answer);
+            }
+            sumString += operator;
+            console.log(sumString);
+            // if last item in item in sumString is an operator, replace with new opp
+        }
+        catch(err) {
+            console.log("Incorrect operator placement")
+            if (lastCharAnOperator()) {
+                console.log("Operator switch");
+                sumString = sumString.slice(0, -1);
+                sumString += operator;
             }
         }
     });
