@@ -1,6 +1,7 @@
 @import
 url('http://fonts.googleapis.com/css?family=Raleway:200,400');
 @import url(https://fonts.googleapis.com/css?family=Inconsolata);
+@import url(https://fonts.googleapis.com/css?family=Aldrich);
 
 * {
    -moz-user-select: -moz-none;
@@ -23,20 +24,20 @@ html {
 }
 
 h3 {
-  font-family: "Raleway";
+  font-family: "Aldrich";
   text-align: center;
   font-size: 22px;
-  color: white;
+  color: #F0F4F5;
 }
 
 #logo {
-  padding: 3px 0 3px 0;
+  padding: 5px 0 5px 0;
 }
 
 #calc {
   background: #62c2cc;
   width: 280px;
-  height: 410px;
+  height: 408px;
   margin-bottom: 5px;
   margin: 50px auto;
   padding:10px;
@@ -47,9 +48,9 @@ h3 {
 
 #display {
   width: 270px;
-  height: 50px;
-  line-height: 50px;
-  margin-top: 10px;
+  height: 55px;
+  line-height: 55px;
+  margin-top: 5px;
   margin-bottom: 15px;
   padding: 0px 5px;
   background-color: #D8EDE2;
@@ -96,12 +97,11 @@ button.operators {
 }
 
 button:hover {
-  background: #e9f33f
-;
+  background: #e9f33f;
 }
 
 button:hover.operators {
-  background: #f3b41d;
+  background: #e3a002;
 }
 
 button:focus.operators {
@@ -112,7 +112,7 @@ button#clear, button#clearall {
   background: #e4f6f8;
 }
 button:hover#clear, button:hover#clearall {
-  background: #d7f1f4;
+  background: #c2ebef;
 }
 
 button#equals {

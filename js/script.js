@@ -59,12 +59,6 @@ $(document).ready(function(){
             operator = $(this).text();
             sumString += number;
             number = "";
-            // intermediate calc
-            if (opCount > 1) {
-                var answer = eval(sumString);
-                answer = largeAnswerTrim(answer);
-                $("#display").text(answer);
-            }
             // if last item in item in sumString is an operator, replace with new opp
             if (lastCharAnOperator()) {
                 sumString = sumString.slice(0, -1);
@@ -74,7 +68,13 @@ $(document).ready(function(){
             }
         }
         catch(err) {
+            // intermediate calc
             console.log("Incorrect operator placement")
+            if (opCount > 1) {
+                var answer = eval(sumString);
+                answer = largeAnswerTrim(answer);
+                $("#display").text(answer);
+            }
         }
     });
 
